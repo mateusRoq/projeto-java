@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.g12.mateus.gestor.tests;
+package br.g12.duque.mateus.gestor.tests;
 
 import br.g12.duque.mateus.dao.CategoryDao;
 import br.g12.duque.mateus.models.Category;
@@ -24,9 +24,9 @@ public class InsertCategoryUseCase {
         boolean success = cd.insert();
         
         if(success){
-            JOptionPane.showMessageDialog(null, "Sucesso!");
+            JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
         }else{
-           JOptionPane.showMessageDialog(null, "Erro!"); 
+           JOptionPane.showMessageDialog(null, "Erro ao salvar registro!"); 
         }
         
         
