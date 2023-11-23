@@ -127,10 +127,10 @@ public class CategoryDao implements IRepositoryCategory {
             // 8. Salvar o resultado da query dentro da lista
             while (rs.next()) {
                 list.add(new Category(
-                        rs.getInt("id"), 
-                        rs.getString("name"), 
+                        rs.getInt("id"),
+                        rs.getString("name"),
                         rs.getString("description")
-                                    )
+                )
                 );
             }
         } catch (SQLException e) {
@@ -140,8 +140,29 @@ public class CategoryDao implements IRepositoryCategory {
     }
 
     @Override
-    public Category findById(int id) {
-        return null;
+    public Category findById() {
+        String sql = "SELECT name, description FROM categories WHERE id = " + category.getId();
+
+        Category category = null;
+
+        Connection conn = Conexao.getConnection();
+
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            rs.next(); // mover o cursos para o primeiro resultado encontrado se vier dois, pegará o primeiro
+
+            if (rs.getRow() > 0) {
+                category = new Category(rs.getInt("id"), rs.getString("name"), rs.getString("description"));
+            } else {
+                System.out.println("Categoria não encontrada");
+                return null;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro CategoryDao: " + e.getMessage());
+        }
+        return category;
     }
 
 }
