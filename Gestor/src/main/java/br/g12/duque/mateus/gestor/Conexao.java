@@ -30,7 +30,7 @@ public class Conexao {
                     USERNAME, PASSWORD);
             message = "DEU CERTO UHUUL!";
         }catch(SQLException ex){
-            message = "A CULPA É DO ESTAGIARIO!";
+            message = "A CULPA É DO ESTAGIARIO! erro conexao " + ex.getMessage();
             System.out.println(message);
             ex.printStackTrace();
         }
