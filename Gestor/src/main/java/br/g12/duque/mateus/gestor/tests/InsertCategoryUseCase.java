@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 public class InsertCategoryUseCase {
 
     public static void main(String[] args) {
-
         Category cat = new Category(); // instanciando a categoria
         String name = JOptionPane.showInputDialog("Nome:"); // criando variaveis para 
         String description = JOptionPane.showInputDialog("Descrição:");

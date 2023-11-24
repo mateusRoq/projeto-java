@@ -141,7 +141,7 @@ public class CategoryDao implements IRepositoryCategory {
 
     @Override
     public Category findById() {
-        String sql = "SELECT name, description FROM categories WHERE id = " + category.getId();
+        String sql = "SELECT id, name, description FROM categories WHERE id = " + category.getId();
 
         Category category = null;
 
